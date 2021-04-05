@@ -1,12 +1,32 @@
 <div class="post">
     <div class="post-title">
         <h1>
-            {{post}}
+            {{post.title}}
         </h1>
+        <p>
+            {{post.createdAt}}
+        </p>
     </div>
     <div class="post-content">
         <p>
-            {{content}}
+            {{post.content}}
         </p>
     </div>
 </div>
+
+{{#each comments as |comment|}}
+    <div class="comments">
+       <div class="comment-user">
+           <p>
+                {{comment.user_id}}
+           </p>
+       </div>
+       <div class="comment-content">
+            <p>
+                {{comment.content}}
+            </p>
+       </div>
+    </div>
+{{/each}}
+
+<button type="button" class="btn btn-primary" value="comment">Comment</button>
