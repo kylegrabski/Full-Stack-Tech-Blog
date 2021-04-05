@@ -1,4 +1,5 @@
-            {{#each posts as |post|}}
+{{#each posts as |post|}}
+
 <div class="p-5 mb-4 bg-light rounded-3">
     <div class="container-fluid py-5">
         <h1 class="display-5 fw-bold"> {{title}}</h1>
@@ -7,9 +8,11 @@
             {{content}}
 
         </p>
-        <button class="btn btn-primary btn-lg" type="button" id="commentBtn" value={{id}}>View Comments / Edit Post</button>
+        <button class="btn btn-primary btn-lg" type="button" id="commentBtn" value={{id}}>View Comments / Edit
+            Post</button>
     </div>
 </div>
 
 {{/each}}
+
 <script src="/js/all-posts.js"></script>
