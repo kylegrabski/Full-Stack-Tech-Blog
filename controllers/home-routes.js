@@ -19,11 +19,14 @@ const { Post, Comment, User } = require("../models");
 router.get("/", async (req, res) => {
   try {
     const dbPostData = await Post.findAll({
-      //   include: [
-      //     {
-      //       model: User,
-      //     },
-      //   ],
+        include: [
+          {
+            model: User,
+            // attributes: [
+            //     'name',
+            // ]
+          },
+        ],
     });
 
     const posts = dbPostData.map((content) => content.get({ plain: true }));
@@ -43,8 +46,7 @@ router.get("/single-post/:num", async (req, res) => {
     const dbPostData = await Post.findByPk(req.params.num);
 
     const post = dbPostData.get({ plain: true });
-
-    JSON.stringify(post);
+    
 
     res.render("single-post", {
       post,
