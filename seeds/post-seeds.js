@@ -1,5 +1,7 @@
 const { Post } = require('../models');
 
+
+// creating sample posts
 const postData = [
     {
         title: "Kyle's First Post Title",

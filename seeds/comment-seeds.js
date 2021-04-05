@@ -1,5 +1,7 @@
 const { Comment } = require('../models');
 
+
+// creating sample comments
 const commentData = [
     {
         content: "Kyle's First comment is right Here! Hopefully under Olivers Post",

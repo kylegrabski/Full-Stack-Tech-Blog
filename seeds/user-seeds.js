@@ -1,5 +1,7 @@
 const { User } = require('../models');
 
+
+// Creating sample users
 const userData = [
     {
         user_name: 'Kyle Grabski',
