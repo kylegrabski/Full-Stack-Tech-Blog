@@ -4,6 +4,7 @@ const exphbs = require('express-handlebars');
 const path = require('path');
 const hbs = exphbs.create({});
 
+const helpers = require('./utils/helpers');
 // Sets up the Express App
 const app = express();
 const PORT = process.env.PORT || 3001;
