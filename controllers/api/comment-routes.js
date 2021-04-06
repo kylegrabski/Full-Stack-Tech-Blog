@@ -1,0 +1,1 @@
+//if comment post_id === :num params then GET comments SORT BY CREATED AT 
