@@ -10,3 +10,12 @@
     text-align: center;
 }
 
+.post-title {
+    background-color: #bfd6ea;
+    text-align: center;
+}
+
+.post {
+    border: 2px solid #6099cb;
+    margin: 25px;
+}
