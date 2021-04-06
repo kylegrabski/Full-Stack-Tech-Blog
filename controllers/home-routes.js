@@ -19,14 +19,14 @@ const { Post, Comment, User } = require("../models");
 router.get("/", async (req, res) => {
   try {
     const dbPostData = await Post.findAll({
-        include: [
-          {
-            model: User,
-            // attributes: [
-            //     'name',
-            // ]
-          },
-        ],
+      include: [
+        {
+          model: User,
+          // attributes: [
+          //     'name',
+          // ]
+        },
+      ],
     });
 
     const posts = dbPostData.map((content) => content.get({ plain: true }));
@@ -46,28 +46,33 @@ router.get("/single-post/:num", async (req, res) => {
     const dbPostData = await Post.findByPk(req.params.num);
 
     const post = dbPostData.get({ plain: true });
-    
+
     const dbCommentData = await Comment.findAll({
       where: {
-        post_id: req.params.num
-      }
-    })
+        post_id: req.params.num,
+      },
+    });
 
-    const comments = dbCommentData.map((content) => content.get({ plain: true }));
-    
-    
+    const comments = dbCommentData.map((content) =>
+      content.get({ plain: true })
+    );
 
     res.render("single-post", {
-      post, comments
+      post,
+      comments,
     });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
-
-  
 });
 
-
+router.get("/new-post", async (req, res) => {
+  try {
+    res.render("new-post", {});
+  } catch (err) {
+    console.log(err);
+  }
+});
 
 module.exports = router;
