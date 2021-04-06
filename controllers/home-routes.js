@@ -47,9 +47,18 @@ router.get("/single-post/:num", async (req, res) => {
 
     const post = dbPostData.get({ plain: true });
     
+    const dbCommentData = await Comment.findAll({
+      where: {
+        post_id: req.params.num
+      }
+    })
+
+    const comments = dbCommentData.map((content) => content.get({ plain: true }));
+    
+    
 
     res.render("single-post", {
-      post,
+      post, comments
     });
   } catch (err) {
     console.log(err);
@@ -58,5 +67,7 @@ router.get("/single-post/:num", async (req, res) => {
 
   
 });
+
+
 
 module.exports = router;
