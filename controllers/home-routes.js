@@ -17,14 +17,15 @@ const { Post, Comment, User } = require("../models");
 //   });
 
 router.get("/", async (req, res) => {
+  console.log(req.session.user_id)
   try {
     const dbPostData = await Post.findAll({
       include: [
         {
           model: User,
-          // attributes: [
-          //     'name',
-          // ]
+          attributes: [
+              'user_name',
+          ]
         },
       ],
     });
@@ -70,6 +71,14 @@ router.get("/single-post/:num", async (req, res) => {
 router.get("/new-post", async (req, res) => {
   try {
     res.render("new-post", {});
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+router.get("/login", async (req, res) => {
+  try {
+    res.render("login", {});
   } catch (err) {
     console.log(err);
   }

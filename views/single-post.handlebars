@@ -15,18 +15,26 @@
 </div>
 
 {{#each comments as |comment|}}
-    <div class="comments">
-       <div class="comment-user">
-           <p>
-                {{comment.user_id}}
-           </p>
-       </div>
-       <div class="comment-content">
-            <p>
-                {{comment.content}}
-            </p>
-       </div>
+<div class="comments">
+    <div class="comment-user">
+        <p>
+            {{comment.user_id}}
+        </p>
     </div>
+    <div class="comment-content">
+        <p>
+            {{comment.content}}
+        </p>
+    </div>
+</div>
 {{/each}}
+<form class="newCommentForm">
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Type Your Comments Here: </label>
+        <textarea class="form-control" id="commentContent" rows="3"></textarea>
+    </div>
 
-<button type="button" class="btn btn-primary" value="comment">Comment</button>
+    <button type="submit" class="btn btn-primary" id="commentBtn" value="comment">Comment</button>
+
+</form>
+<script src="/js/comment.js"></script>

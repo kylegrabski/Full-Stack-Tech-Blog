@@ -1,10 +1,11 @@
-async function newFormHandler(e) {
-  e.prevenDefault();
+const newFormHandler = async (e) => {
+  e.preventDefault();
+    console.log("New form handler called")
 
-  const $post_title = document.querySelector("#post_title");
-  const $post_content = document.querySelector("#post_content");
+  const $post_title = document.querySelector("#post_title").value.trim();
+  const $post_content = document.querySelector("#post_content").value.trim();
 
-    const response = await fetch('/api/post-routes', {
+    const response = await fetch('/api/posts/', {
         method: 'POST',
         body: JSON.stringify({
             title: $post_title,
@@ -25,8 +26,9 @@ async function newFormHandler(e) {
 }
 
 // document
-//   .querySelector(".new-post-form")
+//   .querySelector("#submitBtn")
 //   .addEventListener("click", function (e){
+//       e.preventDefault();
 //       console.log("CLICK POST")
 //   });
 document
